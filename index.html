@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Textures -A-Frame School</title>
+    <meta name="description" content="Textures - A-Frame School">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+        <img id="home" src= "https://cdn.glitch.com/06f394e1-785e-414d-b651-9f4d9a303042%2Fimages.png?1495525791754">
+      </a-assets>
+      <a-box src ="#home" position = "0 2 -2" rotation = "90 10 0" scale = "0.5 0.5 0.5">
+        <a-animation attribute = "position" dur = "1500" direction= "alternate" repeat = "indefinite" to = "0 2.05 -2"></a-animation>
+        <a-animation attribute = "scale" begin = "mouseenter" dur = "300" to = "0.6 0.6 0.6"></a-animation>
+        <a-animation attribute = "scale" begin = "mouseleave" dur = "300" to = "0.5 0.5 0.5"></a-animation>
+        <a-animation attribute = "rotation" begin = "click" dur = "300" to = "270 10 0"></a-animation>
+      </a-box>
+      <a-cylinder id="ground" src="#groundTexture" radius="30" height="0.1"></a-cylinder>
+      <a-sky id="background" src="#skyTexture" theta-length="90" radius="30"></a-sky>
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+    </a-scene>
+    <script>
+      var boxEl = document.querySelector('a-box');
+      boxEl.addEventListener('click', function (event) {
+        window.location = "http://www.google.com";
+      });
+    </script>
+  </body>
+</html>
